@@ -60,6 +60,19 @@ function gotPoses(results)
   }
 }
 
+function gotResults(error, results) {
+  if(results.length > 0)
+  {
+    rightWristY = results[0].pose.rightWrist.y;
+    rightWristX = results[0].pose.rightWrist.x;
+    scoreRightWrist =  results[0].pose.keypoints[10].score;
+    console.log('something went wrong');
+    console.error(error);
+  }
+  resultP.html(results[0].label);
+  console.log (results[0].label) 
+}
+
 function startGame()
 {
   game_status = "start";
